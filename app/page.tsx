@@ -1329,8 +1329,8 @@ export default function Home() {
               </p>
 
               <ul className="mt-3 list-inside list-disc space-y-1 text-[12px]">
-                <li>accidentally watching someone's story</li>
-                <li>thinking "okay" sounded rude</li>
+                <li>accidentally watching someone&apos;s story</li>
+                <li>thinking &quot;okay&quot; sounded rude</li>
                 <li>rewriting a two-word message</li>
                 <li>checking whether someone is online</li>
                 <li>remembering something embarrassing from three days ago</li>
