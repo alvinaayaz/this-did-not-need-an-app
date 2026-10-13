@@ -1147,7 +1147,7 @@ const examples = [
 
 function findCase(input: string): Case {
   const normalize = (value: string) =>
-    value.toLowerCase().replace(/[^a-z0-9]+/g, " ").trim().replace(/\\s+/g, " ");
+    value.toLowerCase().replace(/[^a-z0-9]+/g, " ").trim().replace(/\s+/g, " ");
   const text = ` ${normalize(input)} `;
 
   const matchesPhrase = (phrase: string) => {
