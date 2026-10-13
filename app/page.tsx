@@ -1146,7 +1146,14 @@ const examples = [
 ];
 
 function findCase(input: string): Case {
-  const text = input.toLowerCase().trim();
+  const normalize = (value: string) =>
+    value.toLowerCase().replace(/[^a-z0-9]+/g, " ").trim().replace(/\\s+/g, " ");
+  const text = ` ${normalize(input)} `;
+
+  const matchesPhrase = (phrase: string) => {
+    const normalizedPhrase = normalize(phrase);
+    return normalizedPhrase.length > 0 && text.includes(` ${normalizedPhrase} `);
+  };
 
   let bestCase: Case | null = null;
   let bestScore = 0;
@@ -1155,13 +1162,13 @@ function findCase(input: string): Case {
     let score = 0;
 
     for (const keyword of item.keywords) {
-      if (text.includes(keyword)) {
+      if (matchesPhrase(keyword)) {
         score += keyword.includes(" ") ? 4 : 2;
       }
     }
 
     for (const alias of item.aliases) {
-      if (text.includes(alias)) {
+      if (matchesPhrase(alias)) {
         score += 5;
       }
     }
